@@ -1,6 +1,8 @@
 ## pyfetion
 
-API refernce:
+With pyfetion you can send sms to your fetion friends(include yourself) in an easy way.
+
+All API refers to 
 
 https://code.google.com/p/php-fetion/source/browse/trunk/lib/PHPFetion.php
 
