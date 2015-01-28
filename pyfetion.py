@@ -132,9 +132,8 @@ class Fetion():
         # cookie enabled
         if self.cookie == '':
             self.cookie = cookielib.CookieJar()
-            cookie_handler = urllib2.HTTPCookieProcessor(self.cookie)
-        else:
-            cookie_handler = urllib2.HTTPCookieProcessor(self.cookie)
+
+        cookie_handler = urllib2.HTTPCookieProcessor(self.cookie)
 
         if self.debug:
             http_handler = urllib2.HTTPHandler(debuglevel=1)
@@ -168,7 +167,7 @@ if __name__ == '__main__':
     send_to = '138XXXXXXXX'
     msg = '测试短信，请无视'
 
-    m = Fetion(yourmob, password)
+    m = Fetion(yourmob, password,1)
     try:
         print m.send_msg(send_to, msg)
     except FetionError, e:

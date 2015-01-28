@@ -8,6 +8,10 @@ https://code.google.com/p/php-fetion/source/browse/trunk/lib/PHPFetion.php
 
 ### How to use
 
+**Notice**
+
+Make sure your file encoding is utf-8.
+
 ```
 yourmob = "136XXXXXXXX"
 password = '123456'
