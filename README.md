@@ -10,7 +10,9 @@ https://code.google.com/p/php-fetion/source/browse/trunk/lib/PHPFetion.php
 
 **Notice**
 
-Make sure your file encoding is utf-8.
+ - Make sure your file encoding is utf-8.
+
+ - Friends list is removed because each request needs different token.
 
 ```
 yourmob = "136XXXXXXXX"

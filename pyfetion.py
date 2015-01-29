@@ -44,7 +44,6 @@ class Fetion():
         self.password = password
         self.cookie = ''
         self.debug = debug
-        self.friends = self.get_friends_list()
         self.do_login()
 
     def __getattr__(self, attr):
@@ -105,26 +104,13 @@ class Fetion():
             raise FetionError(404)
 
     def getcsrftoken(self, uid):
-        if uid in self.friends:
-            return self.friends[uid]
         uri = self.csrftoken_url + uid
         xml = self.send(uri)
-
         match = re.search(r'name="csrfToken"\svalue="(?P<token>\w+)"', xml, re.M)
         if match:
-            token = match.group('token')
-            self.save_token(uid, token)
-            return token
+            return match.group('token')
         else:
             raise FetionError(403)
-
-    def save_token(self, uid, token):
-        # somewhere to save token
-        self.friends[uid] = token
-
-    def get_friends_list(self):
-        # somewhere to get token
-        return {}
 
     def send(self, uri, data=''):
         url = self.base_url + str(uri)
@@ -165,10 +151,10 @@ if __name__ == '__main__':
     password = '123456'
 
     send_to = '138XXXXXXXX'
-    msg = '测试短信，请无视'
+    message = '测试短信，请无视'
 
-    m = Fetion(yourmob, password,1)
+    m = Fetion(yourmob, password)
     try:
-        print m.send_msg(send_to, msg)
+        print m.send_msg(send_to, message)
     except FetionError, e:
         print e
